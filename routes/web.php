@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'UserController@admin')->name('admin')->middleware('user');
+Route::get('/guru', 'UserController@guru')->name('guru')->middleware('guru');
+Route::get('/siswa', 'UserController@siswa')->name('siswa')->middleware('siswa');
